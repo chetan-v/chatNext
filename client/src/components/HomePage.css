@@ -1,0 +1,62 @@
+/* HomePage.css */
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.login-section,
+.signup-section {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Add more styles as needed */
+/* Add this CSS to your existing stylesheet or create a new one */
+
+/* Loading spinner styles */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation for spinning */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Center the loading spinner */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide the loading spinner by default */
+.hide {
+  display: none;
+}
