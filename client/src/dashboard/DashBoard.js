@@ -17,14 +17,11 @@ const DashBoard = (socket) => {
   const [groupList, setGroupList] = useState([]);
   useEffect(() => {
     const getDashboard = async () => {
-      const token = localStorage.getItem("token");
-      console.log(token);
       try {
         const response = await fetch("https://chatnext-x4gd.onrender.com", {
           method: "GET",
           headers: { 
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
                    },
           credentials: "include",
         });
