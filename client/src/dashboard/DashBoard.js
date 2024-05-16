@@ -95,11 +95,14 @@ const DashBoard = (socket) => {
   };
   const getGroupList = async () => {
     try {
-      const response = await fetch("http://localhost:5000/grouplist", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://chatnext-x4gd.onrender.com/grouplist",
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        }
+      );
       response.json().then((data) => {
         if (data.Status === "success") {
           // console.log(data);
