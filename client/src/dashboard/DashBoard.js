@@ -18,6 +18,7 @@ const DashBoard = (socket) => {
   useEffect(() => {
     const getDashboard = async () => {
       const token = localStorage.getItem("token");
+      console.log(token);
       try {
         const response = await fetch("https://chatnext-x4gd.onrender.com", {
           method: "GET",
