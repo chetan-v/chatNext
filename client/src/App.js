@@ -6,7 +6,14 @@ import DashBoard from "./dashboard/DashBoard";
 import HomePage from "./components/HomePage";
 import { io } from "socket.io-client";
 function App() {
-  const socket = io("https://chatnext-x4gd.onrender.com");
+  const [socket, setSocket] = useState(null);
+
+  useEffect(() => {
+    const newSocket = io("https://chatnext-x4gd.onrender.com");
+    setSocket(newSocket);
+
+    return () => newSocket.close();
+  }, []);
   return (
     <Router>
       <Fragment>
