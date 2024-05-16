@@ -24,7 +24,7 @@ app.use(express.json());
 // middleware
 app.use(
   cors({
-    origin: ["https://chat-next-two-ashen.vercel.app/"],
+    origin: "https://chat-next-two-ashen.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -166,7 +166,7 @@ server.listen(PORT, () => {
 // console.log(server);
 const io = socketio(server, {
   cors: {
-    origin: ["https://chat-next-two-ashen.vercel.app/"],
+    origin: "https://chat-next-two-ashen.vercel.app",
     // credentials: true,
   },
 });
