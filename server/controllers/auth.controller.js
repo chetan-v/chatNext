@@ -54,7 +54,13 @@ const login = async (req, res) => {
         const token = jwt.sign({ name, email, _id }, process.env.SECRET_KEY, {
           expiresIn: "1h",
         });
-        res.cookie("token", token, { secure: true });
+        // res.cookie("token", token, { secure: true });
+        res.cookie("token", token, {
+		maxAge: 15 * 24 * 60 * 60 * 1000, // MS
+		httpOnly: true, // prevent XSS attacks cross-site scripting attacks
+		sameSite: "strict", // CSRF attacks cross-site request forgery attacks
+		secure: process.env.NODE_ENV !== "development",
+	});
 
         return res.status(200).json({ status: "success" });
       } else {
