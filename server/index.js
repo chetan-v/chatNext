@@ -1,7 +1,6 @@
 const express = require("express");
 require("dotenv").config();
 const connectToMongoDB = require("./db/connectToMDB.js");
-const pool = require("./db");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { login, signup, logout } = require("./controllers/auth.controller.js");
