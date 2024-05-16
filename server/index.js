@@ -53,7 +53,7 @@ app.post("/login", login);
 app.get("/logout", logout);
 
 // get list
-app.get("/list", list);
+app.get("/list", verifyUser,list);
 // delete user
 app.post("/delete", verifyUser, async (req, res) => {
   try {
