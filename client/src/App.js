@@ -6,7 +6,7 @@ import DashBoard from "./dashboard/DashBoard";
 import HomePage from "./components/HomePage";
 import { io } from "socket.io-client";
 function App() {
-  const socket = io("http://localhost:5000");
+  const socket = io("https://chatnext-x4gd.onrender.com");
   return (
     <Router>
       <Fragment>
