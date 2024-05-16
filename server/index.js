@@ -29,6 +29,18 @@ app.use(
     credentials: true,
   })
 );
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || 'your-secret-key', // Use an environment variable for the secret key
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: process.env.NODE_ENV === 'production', // Ensure it's true in production
+      httpOnly: true,
+      sameSite: 'lax',
+    },
+  })
+);
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 //socket
