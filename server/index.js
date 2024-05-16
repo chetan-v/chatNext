@@ -3,6 +3,7 @@ const express = require("express");
 require("dotenv").config();
 const connectToMongoDB = require("./db/connectToMDB.js");
 const cors = require("cors");
+const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const { login, signup, logout } = require("./controllers/auth.controller.js");
 const { list } = require("./controllers/members.controller.js");
