@@ -1,4 +1,5 @@
 const express = require("express");
+
 require("dotenv").config();
 const connectToMongoDB = require("./db/connectToMDB.js");
 const cors = require("cors");
@@ -14,6 +15,10 @@ const {
 } = require("./controllers/messages.controller.js");
 const { create } = require("./models/users.model.js");
 const app = express();
+
+const http = require("http");
+const socketio = require("socket.io");
+const server = http.createServer(app);
 
 app.use(express.json());
 // middleware
@@ -154,12 +159,12 @@ app.post("/groupmembers", async (req, res) => {
 
 // listen at 5000
 const PORT = process.env.PORT;
-const server = app.listen(PORT, () => {
+server.listen(PORT, () => {
   connectToMongoDB();
   console.log(`Server Running on port ${PORT}`);
 });
 // console.log(server);
-const io = require("socket.io")(server, {
+const io = socketio(server, {
   cors: {
     origin: ["http://localhost:3000"],
     // credentials: true,
