@@ -39,7 +39,7 @@ const DashBoard = (socket) => {
       }
     };
     getDashboard();
-  }, []);
+  }, [auth]);
   const handleLogOut = async (e) => {
     e.preventDefault();
     try {
