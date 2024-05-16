@@ -18,7 +18,7 @@ const DashBoard = (socket) => {
   useEffect(() => {
     const getDashboard = async () => {
       try {
-        const response = await fetch("http://localhost:5000/", {
+        const response = await fetch("https://chatnext-x4gd.onrender.com", {
           method: "GET",
           headers: { "Content-Type": "application/json" },
           credentials: "include",
@@ -43,11 +43,14 @@ const DashBoard = (socket) => {
   const handleLogOut = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/logout", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://chatnext-x4gd.onrender.com/logout",
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        }
+      );
       response.json().then((data) => {
         if (data.status === "success") {
           window.location = "/login";
@@ -63,7 +66,7 @@ const DashBoard = (socket) => {
   };
   const getList = async () => {
     try {
-      const response = await fetch("http://localhost:5000/list", {
+      const response = await fetch("https://chatnext-x4gd.onrender.com/list", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
